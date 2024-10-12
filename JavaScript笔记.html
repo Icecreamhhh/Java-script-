@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript</title>
+    <style>
+      @font-face {
+        font-family: 书法;
+        src: url("font/dingliezhuhaifont+\(20240831更新版\).ttf");
+      }
+      @font-face {
+        font-family: 手写;
+        src: url("./font/平生体.ttf");
+      }
+      @font-face {
+        font-family: 楷书;
+        src: url(./font/ChillHuoKai_ConRegular.otf);
+      }
+      * {
+        padding: 0%;
+        margin: 0%;
+        box-sizing: border-box;
+      }
+      body {
+        /* background-color: rgb(252, 236, 217); */
+        background-color: #f6f4f0;
+      }
+      h1 {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        /* color: lightcoral; */
+        color: rgb(84, 119, 184);
+      }
+      .row {
+        width: 100vw;
+        height: 30px;
+        background-color: rgb(84, 119, 184);
+        position: absolute;
+        top: 70px;
+      }
+      h2 {
+        font-size: 18px;
+        color: lightcoral;
+        line-height: 30px;
+      }
+      h3 {
+        font-size: 16px;
+        /* color: rgb(127, 193, 255); */
+        color: rgb(84, 119, 184);
+        line-height: 30px;
+      }
+      p {
+        font-family: 楷书;
+        font-size: 22px;
+        color: rgb(54, 52, 52);
+        line-height: 30px;
+      }
+      .word {
+        background-color: rgb(127, 193, 255);
+      }
+      .code {
+        background-color: lightcoral;
+      }
+      .continer {
+        display: grid;
+        position: absolute;
+        left: 5vw;
+        top: 110px;
+        width: 90vw;
+        height: 1000vh;
+        height: auto;
+        grid-template-columns: repeat(5, 1fr);
+        /* grid-template-rows: repeat(7, 80vh); */
+        grid-template-rows: repeat(1, auto);
+        /* grid-row-gap: 15px; */
+        grid-column-gap: 20px;
+      }
+      .item {
+        background-color: white;
+        padding: 2% 4% 3%;
+        border-bottom: 12px solid #f6f4f0;
+      }
+      .note {
+        grid-column: span 3;
+      }
+      .remark {
+        grid-column: span 2;
+      }
+      .diary {
+        position: absolute;
+        left: 5vw;
+        top: 200vh;
+        width: 90vw;
+        padding: 2% 4% 3%;
+        background-color: white;
+        /* background-color: rgb(123, 157, 176); */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Javascript笔记</h1>
+    <div class="row"></div>
+    <!-- js笔记区 -->
+    <div class="continer">
+      <div class="item note">
+        <h2>10/3</h2>
+        <h3>(1)语言基础</h3>
+        <p>
+          内部js写于
+          <span class="word">body标签</span>
+          内，将其置于<span class="word">最底部</span>是最优选
+        </p>
+        <p>
+          外部js依旧写于body标签，使用
+          <span class="code"> script src="./" </span>来引入
+        </p>
+        <p>//单行注释，使用<span class="code">Ctrl+?</span></p>
+        <p>/*多行注释，使用<span class="code">shift+alt+a</span></p>
+        <h3>(2)输出语法</h3>
+        <p>
+          <span class="code">document.write(" ")</span>
+          该标签内填写html标签会被识别
+        </p>
+        <p>
+          <span class="code">console.log(" ")</span>
+          可以直接用log唤出,程序员调试使用
+        </p>
+        <h3>(3)输入语法</h3>
+        <p><span class="code">alert(" ")</span>会弹出提示框</p>
+        <p>
+          <span class="code">prompt(" ")</span>
+          和alert一样弹出提示框，但会有输入框
+        </p>
+        <h3>(4)变量-计算机中储存数据的容器</h3>
+        <p>
+          命名：
+          <span class="word">小驼峰命名法</span>:
+          第一个单词首字母小写，后面每个单词首字母大写，如userName
+        </p>
+        <p>
+          声明:使用<span class="code"> let </span>,多个变量声明用
+          <span class="word">逗号，</span>隔开
+        </p>
+        <p>赋值：使用<span class="code"> = </span>，可以结合输入语法使用</p>
+        <p>初始化：声明的同时赋值，如let name=8</p>
+      </div>
+      <div class="item remark">
+        <h2>备注</h2>
+        <p>
+          (1)变量命名仅能使用
+          <span class="word">字母,数字,下划线和$</span>
+          且<span class="word">数字不能开头</span>(和c语言的命名规则类似)
+        </p>
+        <p>
+          (2)
+          <span class="word">反斜杠\</span>
+          为转义符，可将其后的符号转为普通符号
+        </p>
+      </div>
+      <div class="item note">
+        <h2>10/4</h2>
+        <h3>(1)数组的使用-多个数据存储在单个变量名下</h3>
+        <p>声明：使用<span class="code">let name=[1,2,3]</span></p>
+        <p>
+          数组长度：使用
+          <span class="code">.length</span>
+          获取数组长度，如document.write(name.length)
+        </p>
+        <h3>(2)常量</h3>
+        <p>使用const定义的变量，如const PI=3.14，定义后无法改变赋值</p>
+        <h3>(3)基本数据类型</h3>
+        <p><span class="word">数字型（Number）</span>：一切数字都统称数字型</p>
+        <p>
+          <span class="word">字符串类型（String）</span>：
+          通过单引号、双引号、或<span class="code">反引号``</span>
+          包裹的数据称为字符串
+        </p>
+        <p>布尔型（boolean）：仅含true和false字面量</p>
+        <p>未定义（undefined）：只声明变量，不赋值时变量默认为undefined</p>
+        <p>空类型（null）：仅仅是一个代表“无”“空”“值未知”的特殊值</p>
+        <h3>(4)模板字符串♥♥♥</h3>
+        <p>
+          外面用反引号``,里面${变量名}，如document.write
+          <span class="code">(`我今年${age}岁了`)</span>
+        </p>
+        <h3>(5)检测数据类型</h3>
+        <p>
+          使用<span class="code">typeof+变量名</span>,配合console.log( )检测
+        </p>
+        <h3>(6)类型转换(隐式转换)</h3>
+        <p>+号两边只要有一个是字符串，就会把另一个转成字符串</p>
+        <p>除+以外的算术运算符，如 - * / 都会把数据转化成数字类型</p>
+        <p>+号作为正号解析可以转化为数字型，如+'123'会被转换成数字123</p>
+        <h3>(7)类型转换(显式转换)</h3>
+        <p>
+          直接使用字符串类型包裹变量名，如
+          <span class="code">Number(string)</span>
+        </p>
+        <p><span class="code">parseInt(' ')</span>只取整</p>
+        <p><span class="code">parseFloat(' ')</span>取浮点数</p>
+      </div>
+      <div class="item remark">
+        <h2>备注</h2>
+        <p>
+          (1)js的数组与c语言使用基本一致，注意当数组中
+          <span class="word">有中文需要加引号</span>
+        </p>
+        <p>
+          (2)常量<span class="word">声明时必须赋值</span>，常量名一般使用全大写
+        </p>
+        <p>(3)基本数据类型：数字型、字符串类型、布尔型、未定义、空引用</p>
+        <p>(4)引用数据类型：对象、函数、数组</p>
+        <p>
+          (5)字符串中单双引号没有本质区别，推荐使用单引号<br />
+          <span class="word">单引号不能包裹单引号，可以包裹双引号</span><br />
+          <span class="word"> +在字符串中含拼接作用 </span>
+          ，如document.write('我今年'+age+'岁了')，但更推荐使用模板字符串
+        </p>
+        <p>(6)undefined表示没有赋值，null表示赋值了，但内容为空</p>
+        <p></p>
+      </div>
+      <div class="item note">
+        <h2>10/5</h2>
+        <h3>(1)分支语句</h3>
+        <p>
+          包含if语句、
+          <span class="word">三元运算符</span>
+          、switch语句
+        </p>
+        <p>
+          <span class="word">
+            （需要注意通过prompt输入的类型为字符串，在使用大部分条件语句时可能需要进行字符类型转换）
+          </span>
+        </p>
+        <p>
+          符号使用？:配合使用，格式为条件？满足条件执行的代码:不满足条件执行的代码。如
+          <span class="code"> 3>5？a=3:a=5 </span>
+        </p>
+        <p>
+          妙用：
+          <span class="code">
+            alert(number > 10 ? `${number}` : `0${number}`);
+          </span>
+        </p>
+        <h3>(2)循环语句</h3>
+        <h3>(3)数组</h3>
+        <p>
+          新增元素：push()方法
+          <span class="code"> arr.push(a,b,c...) </span>
+          将一个或多个元素添加到数组末尾，并返回新数组新长度
+        </p>
+        <p>
+          新增元素：unshift()方法
+          <span class="code"> arr.unshift(a,b,c...) </span>
+          将元素添加到开头，并返回新数组长度
+        </p>
+        <p>
+          删除元素：pop()方法,将数组最后一个元素删除，
+          <span class="word">并返回该元素的值</span>
+        </p>
+        <p>
+          删除元素：shift()方法，将数组第一个元素删除，
+          <span class="word">并返回该元素的值</span>
+        </p>
+        <p>
+          删除元素：splice()方法，
+          <span class="code">arr.splice(起始位置，删除元素个数)</span>
+          删除指定元素
+        </p>
+      </div>
+      <div class="item remark"></div>
+      <div class="item note">
+        <h2>10/6</h2>
+        <h3>(1)具名函数</h3>
+        <p>使用<span class="code">function 函数名()</span>定义</p>
+        <h3>(2)匿名函数</h3>
+        <p>
+          1
+          <span class="word"> 函数表达式：</span>
+          将匿名函数赋值给
+          <span class="word">一个变量</span>
+          ，并且通过变量名称进行调用<br />格式为：
+          <span class="code"> let 函数名=function(){}</span>
+        </p>
+        <p>
+          2
+          <span class="word">立即执行函数：</span>
+          主要用于避免全局变量之间的污染，
+          函数主体依旧写于大括号内，写完会立即执行;第一个（）内写形参，第二个（）内写实参
+          <br />写法1
+          <span class="code"> (function(){})() </span>
+          <br />写法2
+          <span class="code"> (function(){}()) </span>
+        </p>
+      </div>
+      <div class="item remark">
+        <h2>备注</h2>
+        <p>(1)具名函数可以在任何位置调用，函数表达式只能先声明后调用</p>
+      </div>
+      <div class="item note">
+        <h2>10/7 面向对象</h2>
+        <h3>(1)对象</h3>
+        <p>对象（object）是js里的一种数据类型，和数组相比是无序的</p>
+        <p>
+          和c语言中的结构体相似,声明语法：
+          <span class="code">let 对象名={ }</span>。
+        </p>
+        <p>
+          对象由属性和方法组成，属性通常为名词，使用逗号隔开;方法通常为动词,本质是函数（匿名函数）
+        </p>
+        <h3>(2)“查”</h3>
+        <p>
+          <span class="word">语法1： </span>
+          对象名.属性名
+        </p>
+        <p>
+          <span class="word">语法2： </span>
+          对象名['属性名']
+        </p>
+        <h3>(3)“增”</h3>
+        <p>语法：对象名.新属性名=属性值</p>
+        <h3>(4)“删”（了解即可）</h3>
+        <p>语法：delete 对象名.属性名</p>
+        <h3>(5)方法调用</h3>
+        <p>对象名.方法()</p>
+        <h3><span class="word" style="color: aliceblue">(6)遍历对象</span></h3>
+        <p><span class="code">for(let key/k in arr)</span></p>
+        <p>k会取得下标值，但是类型是字符串</p>
+        <p>
+          <span class="word"
+            >遍历对象一定要使用“查”的语法2，arr[k]，且k不加引号
+          </span>
+        </p>
+        <h3>(6)内置对象-Math</h3>
+        <p>随机数：Math.rand()随机数函数，返回一个[0,1）的数</p>
+        <p>
+          生成N-M之间的随机数：
+          <span class="code">Math.floor(Math.rand()*(M-N+1))+N</span>
+        </p>
+      </div>
+      <div class="item remark"></div>
+      <div class="item note"></div>
+      <div class="item remark"></div>
+      <!-- <div class="item note">1</div>
+      <div class="item remark">3</div> -->
+    </div>
+    <script>
+      // let date = prompt("请输入本次查看的日期");
+      // document.write(`
+      //   <div class="diary">
+      //     <p>${date}</p>
+      //   </div>
+      // `);
+      // <!-- js练习区 -->
+      let hero = ["张飞", "刘备", "关羽", "赵云", "黄忠", "马超"];
+      let i = Math.floor(Math.random() * (5 + 1));
+      console.log(hero[i]);
+      hero.splice(i, 1);
+    </script>
+  </body>
+</html>
